@@ -2,6 +2,18 @@
  * Write a Program to implement Insertion Sort and report
  * the number of comparisons made.
  * 
+ * Insertion_Sort (A)
+ * ==================
+ * i ← 1
+ * while i < length(A)
+ *   j ← i
+ *   while j > 0 and A[j-1] > A[j]
+ *     swap A[j] and A[j-1]
+ *     j ← j - 1
+ *   end while
+ *   i ← i + 1
+ * end while
+ * 
  * Written by Sudipto Ghosh for the University of Delhi
  */
 
@@ -26,7 +38,7 @@ int main()
         int array[MAX_SIZE];
         int size, comparisons;
 
-        ofstream fout("results.csv");
+        ofstream fout("./results.csv");
 
         cout << "+------------------------------------------------+\n";
         cout << "| Input Size | Best Case | Avg Case | Worst Case |\n";
@@ -90,17 +102,15 @@ int main()
 
 int insertionSort(int *array, int size)
 {
-    int i, j, k, key, iterCompCount, count = 0;
+    int i, j, k, key, count = 0;
 
     for (i = 1; i < size; i++)
     {
         key = array[i];
-        iterCompCount = 0;
 
         for (j = i - 1; j >= 0; j--)
         {
             count++;
-            iterCompCount++;
 
             if (array[j] > key)
             {
