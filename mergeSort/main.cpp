@@ -2,39 +2,6 @@
  * Write a Program to implement Merge Sort and report
  * the number of comparisons made.
  * 
- * Merge_Sort (A)
- * ==============
- * if length(A) ≤ 1 then
- *   return A
- * left := empty list
- * right := empty list
- * for each x with index i in A do
- *   if i < length(A) / 2 then
- *     append x to left
- *   else
- *     append x to right
- * left := Merge_Sort(left)
- * right := Merge_Sort(right)
- * return Merge(left, right)
- * 
- * Merge (left, right)
- * ===================
- * result := empty list
- * while left is not empty and right is not empty do
- *   if first(left) ≤ first(right) then
- *     append first(left) to result
- *     left := rest(left)
- *   else
- *     append first(right) to result
- *     right := rest(right)
- * while left is not empty do
- *   append first(left) to result
- *   left := rest(left)
- * while right is not empty do
- *   append first(right) to result
- *   right := rest(right)
- * return result
- * 
  * Written by Sudipto Ghosh for the University of Delhi
  */
 
@@ -124,40 +91,39 @@ int main()
     }
 }
 
-int mergeSort(int *array, int left, int right)
+int mergeSort(int *array, int beg, int end)
 {
-    if (left >= right)
+    if (beg >= end)
         return 0;
     int comparisons = 0;
-    int mid = (left + right) / 2;
-    comparisons += mergeSort(array, left, mid);
-    comparisons += mergeSort(array, mid + 1, right);
-    comparisons += merge(array, left, mid, right);
+    int mid = (beg + end) / 2;
+    comparisons += mergeSort(array, beg, mid);
+    comparisons += mergeSort(array, mid + 1, end);
+    comparisons += merge(array, beg, mid, end);
     return comparisons;
 }
 
-int merge(int *array, int left, int mid, int right)
+int merge(int *array, int beg, int mid, int end)
 {
     int comparisons = 0;
-    int leftSize = mid - left + 1;
-    int rightSize = right - mid;
 
+    int leftSize = mid - beg + 1;
+    int rightSize = end - mid;
     int leftArr[leftSize], rightArr[rightSize];
 
     for (int i = 0; i < leftSize; i++)
-        leftArr[i] = array[left + i];
+        leftArr[i] = array[beg + i];
     for (int j = 0; j < rightSize; j++)
         rightArr[j] = array[mid + 1 + j];
 
-    int i = 0, j = 0, k = left;
+    int i = 0, j = 0, k = beg;
 
     while (i < leftSize && j < rightSize)
     {
         if (leftArr[i] <= rightArr[j])
-            array[k] = leftArr[i++];
+            array[k++] = leftArr[i++];
         else
-            array[k] = rightArr[j++];
-        k++;
+            array[k++] = rightArr[j++];
         comparisons++;
     }
 
