@@ -15,8 +15,6 @@
 
 using namespace std;
 
-int comparisons = 0;
-
 int mergeSort(int *, int, int);
 int merge(int *, int, int, int);
 
@@ -26,8 +24,8 @@ int main()
     {
         srand(time(0));
 
-        int size;
         int array[MAX_SIZE];
+        int size, comparisons;
 
         ofstream fout("./results.csv");
 
@@ -93,13 +91,14 @@ int main()
 
 int mergeSort(int *array, int beg, int end)
 {
-    if (beg >= end)
-        return 0;
     int comparisons = 0;
-    int mid = (beg + end) / 2;
-    comparisons += mergeSort(array, beg, mid);
-    comparisons += mergeSort(array, mid + 1, end);
-    comparisons += merge(array, beg, mid, end);
+    if (beg < end)
+    {
+        int mid = (beg + end) / 2;
+        comparisons += mergeSort(array, beg, mid);
+        comparisons += mergeSort(array, mid + 1, end);
+        comparisons += merge(array, beg, mid, end);
+    }
     return comparisons;
 }
 
@@ -107,31 +106,28 @@ int merge(int *array, int beg, int mid, int end)
 {
     int comparisons = 0;
 
-    int leftSize = mid - beg + 1;
-    int rightSize = end - mid;
-    int leftArr[leftSize], rightArr[rightSize];
+    int n1 = mid - beg + 1;
+    int n2 = end - mid;
+    int L[n1 + 1], R[n2 + 1];
 
-    for (int i = 0; i < leftSize; i++)
-        leftArr[i] = array[beg + i];
-    for (int j = 0; j < rightSize; j++)
-        rightArr[j] = array[mid + 1 + j];
+    for (int i = 0; i < n1; i++)
+        L[i] = array[beg + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = array[mid + 1 + j];
 
-    int i = 0, j = 0, k = beg;
+    L[n1] = R[n2] = INT16_MAX;
 
-    while (i < leftSize && j < rightSize)
+    for (int i = 0, j = 0, k = beg; k <= end; k++)
     {
-        if (leftArr[i] <= rightArr[j])
-            array[k++] = leftArr[i++];
+        if (L[i] != INT16_MAX &&
+            R[j] != INT16_MAX)
+            comparisons++;
+
+        if (L[i] <= R[j])
+            array[k] = L[i++];
         else
-            array[k++] = rightArr[j++];
-        comparisons++;
+            array[k] = R[j++];
     }
-
-    while (i < leftSize)
-        array[k++] = leftArr[i++];
-
-    while (j < rightSize)
-        array[k++] = rightArr[j++];
 
     return comparisons;
 }
