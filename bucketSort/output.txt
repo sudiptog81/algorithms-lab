@@ -1,0 +1,26 @@
+Before Sorting: 0.619 0.359 0.788 0.693 0.73 0.127 0.539 0.476 
+Sorting using Radix Sort...
+Binning...
+        Bucket[0]: 
+        Bucket[1]: 0.127 
+        Bucket[2]: 
+        Bucket[3]: 0.359 
+        Bucket[4]: 0.476 
+        Bucket[5]: 0.539 
+        Bucket[6]: 0.693 0.619 
+        Bucket[7]: 0.73 0.788 
+        Bucket[8]: 
+        Bucket[9]: 
+Sorting within bins...
+        Bucket[0]: 
+        Bucket[1]: 0.127 
+        Bucket[2]: 
+        Bucket[3]: 0.359 
+        Bucket[4]: 0.476 
+        Bucket[5]: 0.539 
+        Bucket[6]: 0.619 0.693 
+        Bucket[7]: 0.73 0.788 
+        Bucket[8]: 
+        Bucket[9]: 
+Concatenating buckets...
+After Sorting: 0.127 0.359 0.476 0.539 0.619 0.693 0.73 0.788 
