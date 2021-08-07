@@ -1,0 +1,186 @@
+INPUT 1
+=======
+Enter number of nodes: 5
+Enter number of edges: 5
+
+Edge 1
+============
+Enter source node: 1
+Enter dest node: 2
+
+Edge 2
+============
+Enter source node: 2
+Enter dest node: 4
+
+Edge 3
+============
+Enter source node: 4
+Enter dest node: 5
+
+Edge 4
+============
+Enter source node: 5
+Enter dest node: 3
+
+Edge 5
+============
+Enter source node: 3
+Enter dest node: 1
+
+
+Adjacency Matrix
+================
+0  1  1  ∞  ∞
+1  0  ∞  1  ∞
+1  ∞  0  ∞  1
+∞  1  ∞  0  1
+∞  ∞  1  1  0
+
+Cycle was Detected: 2 => 4 => 5 => 3 => 1 => 2
+DFS Traversal: (3, 1); (5, 3); (4, 5); (2, 4);
+
+INPUT 2
+=======
+Enter number of nodes: 5
+Enter number of edges: 4
+
+Edge 1
+============
+Enter source node: 2
+Enter dest node: 1
+
+Edge 2
+============
+Enter source node: 1
+Enter dest node: 3
+
+Edge 3
+============
+Enter source node: 3
+Enter dest node: 4
+
+Edge 4
+============
+Enter source node: 3
+Enter dest node: 5
+
+
+Adjacency Matrix
+================
+0  1  1  ∞  ∞
+1  0  ∞  ∞  ∞
+1  ∞  0  1  1
+∞  ∞  1  0  ∞
+∞  ∞  1  ∞  0
+
+No Cycle was Detected
+
+INPUT 3
+=======
+Enter Number of Vertices: 10
+Enter Number of Edges: 15
+
+Edge 1
+=============
+Source Node: 1
+Destination Node: 5
+Edge Weight: 190
+
+Edge 2
+=============
+Source Node: 5
+Destination Node: 8
+Edge Weight: 90
+
+Edge 3
+=============
+Source Node: 5
+Destination Node: 4
+Edge Weight: 90
+
+Edge 4
+=============
+Source Node: 5
+Destination Node: 7
+Edge Weight: 150
+
+Edge 5
+=============
+Source Node: 4
+Destination Node: 7
+Edge Weight: 250
+
+Edge 6
+=============
+Source Node: 8
+Destination Node: 7
+Edge Weight: 100
+
+Edge 7
+=============
+Source Node: 8
+Destination Node: 10
+Edge Weight: 300
+
+Edge 8
+=============
+Source Node: 7
+Destination Node: 10
+Edge Weight: 250
+
+Edge 9
+=============
+Source Node: 4
+Destination Node: 6
+Edge Weight: 130
+
+Edge 10
+=============
+Source Node: 7
+Destination Node: 6
+Edge Weight: 120
+
+Edge 11
+=============
+Source Node: 7
+Destination Node: 9
+Edge Weight: 110
+
+Edge 12
+=============
+Source Node: 10
+Destination Node: 9
+Edge Weight: 280
+
+Edge 13
+=============
+Source Node: 3
+Destination Node: 6
+Edge Weight: 240
+
+Edge 14
+=============
+Source Node: 6
+Destination Node: 9
+Edge Weight: 80
+
+Edge 15
+=============
+Source Node: 2
+Destination Node: 4
+Edge Weight: 110
+
+Edges in Minimum Spanning Tree:
+===============================
+Edge (6, 9) ==> 80
+Edge (5, 8) ==> 90
+Edge (5, 4) ==> 90
+Edge (8, 7) ==> 100
+Edge (7, 9) ==> 110
+Edge (2, 4) ==> 110
+Edge (1, 5) ==> 190
+Edge (3, 6) ==> 240
+Edge (7, 10) ==> 250
+
+
